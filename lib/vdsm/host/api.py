@@ -178,4 +178,3 @@ def _getHaInfo():
 
 def checkIntegrity():
     return integrity.checkIntegrity()
-
