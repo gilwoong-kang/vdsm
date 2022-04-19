@@ -46,11 +46,9 @@ class ServerTests(VdsmTestCase):
                                               resource="test", current_tasks=0)
 
         ctx = FakeContext()
-        # request = JsonRpcRequest.decode(
-            # '{"jsonrpc":"2.0","method":"Host.stats","params":{},"id":"943"}')
-        request = JsonRpcRequest.decode(
-            '{"jsonrpc":"2.0","method":"Host.checkIntegrity","params":{},"id":"943"}'
-            )
+# request = JsonRpcRequest.decode(
+# '{"jsonrpc":"2.0","method":"Host.stats","params":{},"id":"943"}')
+        request = JsonRpcRequest.decode('{"jsonrpc":"2.0","method":"Host.checkIntegrity","params":{},"id":"943"}')
 
         server = JsonRpcServer(None, 0, None, threadFactory=thread_factory)
         server._runRequest(ctx, request)

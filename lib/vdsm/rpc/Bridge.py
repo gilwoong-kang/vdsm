@@ -358,7 +358,7 @@ command_info = {
     'Host_setKsmTune': {'ret': 'status'},
     'Host_setHaMaintenanceMode': {'ret': 'status'},
     'Host_echo': {'ret': 'logged'},
-    'Host_integrity' : {'call' : Host_checkIntegrity ,'ret' : 'integrity'},
+    'Host_integrity' : {'call' : Host_checkIntegrity, 'ret' : 'integrity'},
     'Image_cloneStructure': {'ret': 'uuid'},
     'Image_delete': {'ret': 'uuid'},
     'Image_deleteVolumes': {'ret': 'uuid'},
