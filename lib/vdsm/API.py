@@ -25,6 +25,7 @@ from __future__ import absolute_import
 import errno
 import io
 import logging
+import this
 
 import six
 
@@ -1626,7 +1627,7 @@ class Global(APIBase):
 
     @api.logged(on="api.host")
     def checkIntegrity(self):
-        return integrity.checkIntegrity()
+        return integrity.checkIntegrity(this)
 
     def getLldp(self, filter):
         return response.success(
