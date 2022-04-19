@@ -45,6 +45,7 @@ from . import sslutils
 _COMMAND_CONVERTER = {
     'activateStorageDomain': 'StorageDomain.activate',
     'attachStorageDomain': 'StorageDomain.attach',
+    'checkIntegrity' : 'Host.checkIntegrity',
     'connectStoragePool': 'StoragePool.connect',
     'connectStorageServer': 'StoragePool.connectStorageServer',
     'cont': 'VM.cont',

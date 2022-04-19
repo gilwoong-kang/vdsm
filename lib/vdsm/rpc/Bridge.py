@@ -317,6 +317,9 @@ def Image_prepare_Ret(ret):
     return {'path': ret['path']}
 
 
+def Host_checkIntegrity(api):
+    return API.Global().checkIntegrity()
+
 ##
 # Possible ways to override a command:
 # - Supply a custom call function if the function name doesn't map directly to
@@ -355,6 +358,7 @@ command_info = {
     'Host_setKsmTune': {'ret': 'status'},
     'Host_setHaMaintenanceMode': {'ret': 'status'},
     'Host_echo': {'ret': 'logged'},
+    'Host_integrity' : {'call' : Host_checkIntegrity ,'ret' : 'integrity'},
     'Image_cloneStructure': {'ret': 'uuid'},
     'Image_delete': {'ret': 'uuid'},
     'Image_deleteVolumes': {'ret': 'uuid'},
