@@ -318,7 +318,7 @@ def Image_prepare_Ret(ret):
 
 
 def Host_runCmd(api, args):
-    params = args.get('params',[])
+    params = args.get('params', [])
     return API.Global().runCmd(params)
 
 ##
