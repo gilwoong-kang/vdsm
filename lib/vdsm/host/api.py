@@ -31,7 +31,6 @@ from vdsm import metrics
 from vdsm.common import hooks
 from vdsm.common.units import KiB, MiB
 from vdsm.virt import vmstatus
-from vdsm.integrity import integrity
 
 haClient = None
 try:

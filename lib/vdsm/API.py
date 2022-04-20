@@ -1625,7 +1625,7 @@ class Global(APIBase):
         return {'status': doneCode, 'logged': message}
 
     @api.logged(on="api.host")
-    def runCmd(params):
+    def runCmd(self, params):
         return cmd.runCmd(params)
 
     def getLldp(self, filter):
