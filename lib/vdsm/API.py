@@ -69,7 +69,7 @@ from vdsm.virt.jobs import seal
 import vdsm.virt.vm
 from vdsm.virt.vmdevices import graphics
 from vdsm.virt.vmdevices import hwclass
-from vdsm.integrity import integrity
+from vdsm.cmd import cmd
 
 haClient = None  # Define here to work around pyflakes issue #13
 try:
@@ -1626,8 +1626,8 @@ class Global(APIBase):
         return {'status': doneCode, 'logged': message}
 
     @api.logged(on="api.host")
-    def checkIntegrity(self):
-        return integrity.checkIntegrity(this)
+    def runCmd(params):
+        return cmd.runCmd(params)
 
     def getLldp(self, filter):
         return response.success(
