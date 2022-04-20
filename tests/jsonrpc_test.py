@@ -49,9 +49,9 @@ class ServerTests(VdsmTestCase):
 # request = JsonRpcRequest.decode(
 # '{"jsonrpc":"2.0","method":"Host.stats","params":{},"id":"943"}')
         d = '"method":"Host.runCmd"'
-        params = '{"aide","--check"}'
+        params = '{ params : ["aide", "--check"]}'
         request = JsonRpcRequest.decode(
-            '{"jsonrpc":"2.0",%s,"params":%s,"id":"943"}' % d, params)
+            '{"jsonrpc":"2.0", %s, "params": %s, "id":"943"}' % d, params)
 
         server = JsonRpcServer(None, 0, None, threadFactory=thread_factory)
         server._runRequest(ctx, request)
