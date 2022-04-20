@@ -23,7 +23,6 @@ from __future__ import division
 
 import errno
 import logging
-import this
 import time
 from . import stats
 from vdsm import utils
