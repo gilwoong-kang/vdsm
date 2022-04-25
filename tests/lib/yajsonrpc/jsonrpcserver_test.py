@@ -180,6 +180,18 @@ class JsonRpcServerTests(TestCaseBase):
 
     @permutations(USE_SSL)
     @broken_on_ci("fails randomly in CI")
+    def testIntegrityMethod(self, use_ssl):
+        data = dummyTextGenerator(1024)
+        ssl_ctx = self.ssl_ctx if use_ssl else None
+        bridge = _DummyBridge
+
+        with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
+            with self._client(clientFactory) as client:
+                self.assertEqual(self._callTimeout(client, "runInt",
+                                 None, CALL_ID, data))
+
+    @permutations(USE_SSL)
+    @broken_on_ci("fails randomly in CI")
     def testMethodMissingMethod(self, use_ssl):
         missing_method = "I_DO_NOT_EXIST :("
         ssl_ctx = self.ssl_ctx if use_ssl else None
