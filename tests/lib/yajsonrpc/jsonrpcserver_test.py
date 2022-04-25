@@ -63,6 +63,7 @@ class _DummyBridge(object):
     def getBridgeMethods(self):
         return ((self.echo, 'echo'),
                 (self.ping, 'ping'),
+                (self.host, 'host'),
                 (self.slow_response, 'slow_response'))
 
     def dispatch(self, method):
@@ -81,6 +82,9 @@ class _DummyBridge(object):
 
     def ping(self):
         return None
+
+    def host(self):
+        return 'host'
 
     def slow_response(self):
         time.sleep(CALL_TIMEOUT + 2)
