@@ -38,8 +38,9 @@ except ImportError:
     pass
 
 def runInt():
-    rc, out, err = cmdutils.exec_cmd(("aide","--check"))
+    rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
     return out
+
 
 def get_stats(cif, sample, multipath=False):
     """
