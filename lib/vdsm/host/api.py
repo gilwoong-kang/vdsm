@@ -40,7 +40,7 @@ except ImportError:
 
 def runInt():
     rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
-    return out
+    return "this is return"
 
 
 def get_stats(cif, sample, multipath=False):

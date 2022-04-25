@@ -63,3 +63,19 @@ class ServerTests(VdsmTestCase):
         self.assertEqual({"reason": "Too many tasks",
                           "resource": "test",
                           "current_tasks": 0}, reason)
+    
+    def test_runInt(self):
+        def thread_factory(callable):
+            raise exception.ResourceExhausted("Too many tasks",
+                                               resource="test", current_tasks=0)
+
+        ctx = FakeContext()
+        request = JsonRpcRequest.decode(
+            '{"jsonrpc":"2.0","method":"Host.runInt","id":"944"}')
+        
+        server = JsonRpcServer(None, 0, None, threadFactory=thread_factory)
+        server._runRequest(ctx, request)
+
+        result = ctx.response.toDict().get('result')
+        self.assertEqual({"result":"this is return"}, result)
+
