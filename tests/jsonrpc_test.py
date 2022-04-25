@@ -73,7 +73,7 @@ class ServerTests(VdsmTestCase):
         request = JsonRpcRequest.decode(
             '{"jsonrpc":"2.0","method":"Host.runInt","id":"944"}')
 
-        server = JsonRpcServer(None, 0, None, threadFactory=thread_factory)
+        server = JsonRpcServer(None, 1, None, threadFactory=thread_factory)
         server._runRequest(ctx, request)
 
         result = ctx.response.toDict()
