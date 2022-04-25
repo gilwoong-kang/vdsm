@@ -294,6 +294,10 @@ class DataVerificationTests(TestCaseBase):
 
         _schema.verify_retval(vdsmapi.MethodRep('Host', 'getStats'), ret)
 
+    def test_runInt(self):
+        ret = {"result": "this is return"}
+        _schema.verify_retval(vdsmapi.MethodRep('Host', 'runInt'), ret)
+
     def test_allvmstats(self):
         ret = [{'vcpuCount': '1',
                 'displayInfo': [{'tlsPort': u'5900',
