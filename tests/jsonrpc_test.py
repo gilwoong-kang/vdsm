@@ -76,5 +76,5 @@ class ServerTests(VdsmTestCase):
         server = JsonRpcServer(None, 0, None, threadFactory=thread_factory)
         server._runRequest(ctx, request)
 
-        result = ctx.response.toDict().get('result')
+        result = ctx.response.toDict()
         self.assertEqual({"result": "this is return"}, result)
