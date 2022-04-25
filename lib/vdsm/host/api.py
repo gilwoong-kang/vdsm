@@ -37,6 +37,7 @@ try:
 except ImportError:
     pass
 
+
 def runInt():
     rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
     return out
