@@ -351,6 +351,7 @@ command_info = {
     'Host_getVMFullList': {'call': Host_getVMFullList_Call, 'ret': 'vmList'},
     'Host_getAllVmStats': {'ret': 'statsList'},
     'Host_getAllVmIoTunePolicies': {'ret': 'io_tune_policies_dict'},
+    'Host_runInt': {'ret': 'info'},
     'Host_setupNetworks': {'ret': 'status'},
     'Host_setKsmTune': {'ret': 'status'},
     'Host_setHaMaintenanceMode': {'ret': 'status'},

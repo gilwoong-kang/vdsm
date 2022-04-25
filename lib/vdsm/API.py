@@ -1458,6 +1458,12 @@ class Global(APIBase):
         return {'status': doneCode, 'info': logutils.Suppressed(info)}
 
     @api.logged(on="api.host")
+    def runInt(self):
+        info = hostapi.runInt()
+        throttledlog.info('runInt', "check integrity")
+        return {'result': info}
+
+    @api.logged(on="api.host")
     def setLogLevel(self, level, name=''):
         """
         Set verbosity level of vdsm's log.

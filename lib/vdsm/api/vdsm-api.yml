@@ -2438,6 +2438,16 @@ types:
             added: '4.2'
         type: object
 
+    HostIntegrity: &HostIntegrity
+        added: '4.4'
+        description: result of aide integrity check.
+        name: HostIntegrity
+        properties:
+        -   description: aide stdout
+            name: result
+            type: string
+        type: object
+
     VmDiskDeviceFormat: &VmDiskDeviceFormat
         added: '3.1'
         description: An enumeration of VM disk device formats.
@@ -9264,6 +9274,13 @@ Host.getStats:
     return:
         description: The host statistics
         type: *HostStats
+
+Host.runInt:
+    added: '4.4'
+    description: check host integrity.
+    return:
+        description: aide stdout
+        type: *HostIntegrity
 
 Host.getStorageDomains:
     added: '3.1'
