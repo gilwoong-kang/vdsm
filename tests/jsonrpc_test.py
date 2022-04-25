@@ -78,4 +78,3 @@ class ServerTests(VdsmTestCase):
 
         result = ctx.response.toDict().get('result')
         self.assertEqual({"result":"this is return"}, result)
-
