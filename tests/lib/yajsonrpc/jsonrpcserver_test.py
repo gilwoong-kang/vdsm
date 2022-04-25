@@ -63,7 +63,7 @@ class _DummyBridge(object):
     def getBridgeMethods(self):
         return ((self.echo, 'echo'),
                 (self.ping, 'ping'),
-                (self.host, 'host'),
+                (self.runInt, 'Host.runInt'),
                 (self.slow_response, 'slow_response'))
 
     def dispatch(self, method):
@@ -83,7 +83,7 @@ class _DummyBridge(object):
     def ping(self):
         return None
 
-    def host(self):
+    def runInt(self):
         return 'host'
 
     def slow_response(self):
@@ -191,7 +191,7 @@ class JsonRpcServerTests(TestCaseBase):
 
         with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
             with self._client(clientFactory) as client:
-                self.assertEqual(self._callTimeout(client, "runInt",
+                self.assertEqual(self._callTimeout(client, "Host.runInt",
                                   {}, CALL_ID), data)
 
     @permutations(USE_SSL)
