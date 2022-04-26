@@ -28,7 +28,6 @@ from monkeypatch import MonkeyPatch
 from testValidation import slowtest
 from vdsm import executor
 from vdsm.common import exception
-from vdsm.rpc import Bridge
 
 from testlib import VdsmTestCase as TestCaseBase, \
     expandPermutations, \
@@ -193,8 +192,8 @@ class JsonRpcServerTests(TestCaseBase):
 
         with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
             with self._client(clientFactory) as client:
-                self.assertEqual(self._callTimeout(client, "Host.runInt",
-                                  {'text': data}, CALL_ID), data)
+                self.assertEqual(self._callTimeout(client, "runInt",
+                                 {'text': data}, CALL_ID), data)
 
     @permutations(USE_SSL)
     @broken_on_ci("fails randomly in CI")
