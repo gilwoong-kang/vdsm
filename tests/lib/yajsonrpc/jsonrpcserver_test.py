@@ -164,7 +164,7 @@ class JsonRpcServerTests(TestCaseBase):
     def testMethodCallArgList(self, use_ssl):
         data = dummyTextGenerator(1024)
         ssl_ctx = self.ssl_ctx if use_ssl else None
-        bridge = Bridge.DynamicBridge()
+        bridge = _DummyBridge()
 
         with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
             with self._client(clientFactory) as client:
@@ -189,12 +189,12 @@ class JsonRpcServerTests(TestCaseBase):
     def testIntegrityMethod(self, use_ssl):
         data = dummyTextGenerator(1024)
         ssl_ctx = self.ssl_ctx if use_ssl else None
-        bridge = _DummyBridge
+        bridge = _DummyBridge()
 
         with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
             with self._client(clientFactory) as client:
                 self.assertEqual(self._callTimeout(client, "runInt",
-                                  {'text': data}, CALL_ID), data)
+                                  {}, CALL_ID), data)
 
     @permutations(USE_SSL)
     @broken_on_ci("fails randomly in CI")
