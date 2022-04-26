@@ -27,7 +27,7 @@ import time
 from . import stats
 from vdsm import utils
 from vdsm import metrics
-from vdsm.common import hooks
+from vdsm.common import cmdutils, hooks
 from vdsm.common.units import KiB, MiB
 from vdsm.virt import vmstatus
 
@@ -79,6 +79,11 @@ def get_stats(cif, sample, multipath=False):
 
     ret = hooks.after_get_stats(ret)
     return ret
+
+
+def runInt():
+    rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
+    return out
 
 
 def send_metrics(hoststats):

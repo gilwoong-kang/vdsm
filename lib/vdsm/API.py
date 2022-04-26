@@ -1474,6 +1474,13 @@ class Global(APIBase):
         logutils.set_level(level, name)
         return dict(status=doneCode)
 
+    @api.logged(on="api.host")
+    @api.method
+    def runInt(self):
+        info = hostapi.runInt()
+        throttledlog.info('runInt', "check integrity")
+        return {'result': info}
+
     # VM-related functions
     @api.logged(on="api.host")
     def dumpxmls(self, vmList=()):

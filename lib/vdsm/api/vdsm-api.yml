@@ -9265,6 +9265,13 @@ Host.getStats:
         description: The host statistics
         type: *HostStats
 
+Host.runInt:
+    added: '4.4.9'
+    description: check host integrity with aide
+    return:
+        description: aide stdout
+        type: string
+
 Host.getStorageDomains:
     added: '3.1'
     description: Get a list of known Storage Domains.
