@@ -169,7 +169,7 @@ class JsonRpcServerTests(TestCaseBase):
         with constructClient(self.log, bridge, ssl_ctx) as clientFactory:
             with self._client(clientFactory) as client:
                 self.log.info("Calling 'echo'")
-                self.assertEqual(self._callTimeout(client, "Host.runInt",
+                self.assertEqual(self._callTimeout(client, "echo",
                                                    (data,), CALL_ID), data)
 
     @permutations(USE_SSL)
