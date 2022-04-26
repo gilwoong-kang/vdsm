@@ -9280,7 +9280,7 @@ Host.runInt:
     description: check host integrity.
     return:
         description: aide stdout
-        type: *HostIntegrity
+        type: string
 
 Host.getStorageDomains:
     added: '3.1'

@@ -1458,6 +1458,7 @@ class Global(APIBase):
         return {'status': doneCode, 'info': logutils.Suppressed(info)}
 
     @api.logged(on="api.host")
+    @api.method
     def runInt(self):
         info = hostapi.runInt()
         throttledlog.info('runInt', "check integrity")
