@@ -86,7 +86,7 @@ def runInt():
     ret = {}
     ret['file'] = "success"
     ret['result'] = "this is result."
-    ret['out'] = out.split("\n")[1]
+    ret['out'] = str(out, 'utf-8')
     return ret
 
 
