@@ -83,7 +83,11 @@ def get_stats(cif, sample, multipath=False):
 
 def runInt():
     rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
-    return out
+    ret = {}
+    ret['file'] = "success"
+    ret['result'] = "this is result."
+    ret['out'] = out.split("\n")[1]
+    return ret
 
 
 def send_metrics(hoststats):
