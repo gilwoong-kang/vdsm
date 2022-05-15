@@ -1476,10 +1476,10 @@ class Global(APIBase):
 
     @api.logged(on="api.host")
     @api.method
-    def runInt(self):
-        info = hostapi.runInt()
+    def runInt(self, cmd):
+        result = hostapi.runInt()
         throttledlog.info('runInt', "check integrity")
-        return {'result': info}
+        return {'result': result}
 
     # VM-related functions
     @api.logged(on="api.host")

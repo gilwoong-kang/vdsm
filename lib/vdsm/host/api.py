@@ -81,8 +81,8 @@ def get_stats(cif, sample, multipath=False):
     return ret
 
 
-def runInt():
-    rc, out, err = cmdutils.exec_cmd(("aide", "--check"))
+def runInt(cmd):
+    rc, out, err = cmdutils.exec_cmd(cmd)
     ret = {}
     ret['file'] = "success"
     ret['result'] = "this is result."
