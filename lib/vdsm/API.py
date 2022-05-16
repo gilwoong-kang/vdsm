@@ -1477,7 +1477,7 @@ class Global(APIBase):
     @api.logged(on="api.host")
     @api.method
     def runInt(self, cmd):
-        result = hostapi.runInt()
+        result = hostapi.runInt(cmd)
         throttledlog.info('runInt', "check integrity")
         return {'result': result}
 
