@@ -9268,6 +9268,11 @@ Host.getStats:
 Host.runInt:
     added: '4.4.9'
     description: check host integrity with aide
+    params:
+    -   defaultvalue: null
+        description: cli command
+        name: cmd
+        type: string
     return:
         description: aide stdout
         type: string
